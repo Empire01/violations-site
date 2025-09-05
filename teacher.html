@@ -6,10 +6,33 @@
   <title>Teacher Login</title>
   <style>
     body { font-family: Arial, sans-serif; background: #f5f5f5; text-align: center; }
-    .login-box { background: #fff; padding: 20px; margin: 100px auto; width: 300px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input { display: block; margin: 10px auto; padding: 10px; width: 90%; }
-    button { padding: 10px 20px; background: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    .login-box { 
+      background: #fff; 
+      padding: 20px; 
+      margin: 100px auto; 
+      width: 300px; 
+      border-radius: 8px; 
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    }
+    input { 
+      display: block; 
+      margin: 10px auto; 
+      padding: 10px; 
+      width: 90%; 
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button { 
+      padding: 10px 20px; 
+      background: #007BFF; 
+      color: #fff; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      width: 100%;
+    }
     button:hover { background: #0056b3; }
+    #status { margin-top: 10px; color: red; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -18,16 +41,19 @@
     <input type="text" id="username" placeholder="Enter Username">
     <input type="password" id="password" placeholder="Enter Password">
     <button onclick="login()">Login</button>
-    <p id="status" style="color:red;"></p>
+    <p id="status"></p>
   </div>
 
   <script>
     function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
       // sample credentials (pwede mong palitan)
-      if (username === "Teacher" && password === "12345") {
+      const validUser = "Teacher";
+      const validPass = "12345";
+
+      if (username === validUser && password === validPass) {
         // successful login → punta sa violations.html
         window.location.href = "violations.html";
       } else {
@@ -37,4 +63,6 @@
   </script>
 </body>
 </html>
+
+
 
